@@ -35,6 +35,22 @@ void delete_linear_from_memory(linear L){
    return;
 }
 
+void print_linear(linear L){
+   size_t i;
+
+   printf("\n");
+   for (i = 0; i < L.N; i++){    
+      printf("%lu ",L.y[i]);
+   }
+   printf("\n");
+//   for (i = 0; i < L.N; i++){    
+//      printf("%u ",L.x[i]);
+//   }
+//   printf("\n");
+
+   return;
+}
+
 //pre-generated betas for the triplicate functions from dimension 4 to dimension 20
 vbf_tt_entry get_beta (size_t n) {
    if (n < 4 || n > 20 || n % 2) {
@@ -227,6 +243,8 @@ void retrieve_linear_and_canonical(vbf_tt T, triplicate Tt, vbf_tt_entry *ygs){
       C.vbf_tt_values[xgs[i]] = T.vbf_tt_values[ygs[i]];
    }
 
+   /* Print linear function */
+   print_linear(L2);
    vbf_tt_print_truth_table(C);
 
    free(xgs);
